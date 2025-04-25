@@ -110,11 +110,12 @@ const Navbar = () => {
                       to={"/"}
                       className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer"
                     >
-                      <img
+                      {/* <img
                         className="inline-block w-10 h-10 rounded-full"
                         src="https://overreacted.io/static/profile-pic-c715447ce38098828758e525a1128b87.jpg"
                         alt="Dan_Abromov"
-                      />{" "}
+                      />{" "} */}
+                      <FaRegUserCircle className="inline-block w-10 h-10 rounded-full"/>
                     </Link>
                   </div>
                 </div>
