@@ -83,7 +83,7 @@ const Navbar = () => {
                     </Link>
                   </div>
                   <div className="flow-root">
-                    {/* {user?.user?.email==='Ramji@gmail.com' ? */}
+                    {user?.user?.email==='Ramji@gmail.com' ?
                     <Link
                       to={"/dashboard"}
                       className="-m-2 block p-2 font-medium text-gray-900"
@@ -91,9 +91,9 @@ const Navbar = () => {
                     >
                       admin
                     </Link>
-                    {/* : ""} */}
+                    : ""}
                   </div>
-                  {/* {user ? */}
+                  {user ?
 
                   <div className="flow-root">
                     <a
@@ -104,17 +104,13 @@ const Navbar = () => {
                       Logout
                     </a>
                   </div>
-                  {/* : ""}  */}
+                  : ""}
                   <div className="flow-root">
                     <Link
                       to={"/"}
                       className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer"
                     >
-                      {/* <img
-                        className="inline-block w-10 h-10 rounded-full"
-                        src="https://overreacted.io/static/profile-pic-c715447ce38098828758e525a1128b87.jpg"
-                        alt="Dan_Abromov"
-                      />{" "} */}
+                      
                       <FaRegUserCircle className="inline-block w-10 h-10 rounded-full"/>
                     </Link>
                   </div>
@@ -142,15 +138,7 @@ const Navbar = () => {
         </Dialog>
       </Transition.Root>
       <header className="relative bg-white">
-        {/* <p
-          className="flex h-10 items-center justify-center bg-pink-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8"
-          style={{
-            backgroundColor: mode === "dark" ? "rgb(62 64 66)" : "",
-            color: mode === "dark" ? "white" : "",
-          }}
-        >
-          Get free delivery on orders over ₹300
-        </p> */}
+        
 
         <nav
           aria-label="Top"
@@ -218,7 +206,7 @@ const Navbar = () => {
                   >
                     Order
                   </Link>
-                  {/* {user?.user?.email==='Ramji@gmail.com' ? */}
+                  {user?.user?.email==='Ramji@gmail.com' ?
                   <Link
                     to={"/dashboard"}
                     className="text-sm font-medium text-gray-700 "
@@ -226,8 +214,8 @@ const Navbar = () => {
                   >
                     Admin
                   </Link>
-                  {/* :""} */}
-                  {/* {user? */}
+                  :""}
+                  {user?
                   <a
                     className="text-sm font-medium text-gray-700 cursor-pointer  "
                     onClick={logout}
@@ -235,7 +223,7 @@ const Navbar = () => {
                   >
                     Logout
                   </a>
-                  {/* :""} */}
+                  :""}
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">
@@ -255,19 +243,16 @@ const Navbar = () => {
                 </div>
                 <div className="hidden lg:ml-8 lg:flex">
                   <a href="#" className="flex items-center text-gray-700 ">
-                    {/* <img */}
-                      {/* className="inline-block w-10 h-10 rounded-full"
-                      // src="https://overreacted.io/static/profile-pic-c715447ce38098828758e525a1128b87.jpg"
-                      // alt="Dan_Abromov" */}
+                    
                       <FaRegUserCircle className="inline-block w-10 h-10 rounded-full"/>
-                    {/* /> */}
+                    
                   </a>
                 </div>
 
                 {/* Search */}
                 <div className="flex lg:ml-6">
                   <button className="" onClick={toggleMode}>
-                    {/* <MdDarkMode size={35} style={{ color: mode === 'dark' ? 'white' : '' }} /> */}
+                   
                     {mode === "light" ? (
                       <FiSun className="" size={30} />
                     ) : "dark" ? (
