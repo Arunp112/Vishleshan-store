@@ -29,6 +29,18 @@ const ProductCard = () => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
+  // Filtered products
+  const filteredProducts = product
+    .filter((obj) =>
+      obj.title.toLowerCase().includes(searchkey.toLowerCase())
+    )
+    .filter((obj) =>
+      obj.category.toLowerCase().includes(filterType.toLowerCase())
+    )
+    .filter((obj) =>
+      obj.price.toString().toLowerCase().includes(filterPrice.toLowerCase())
+    );
+
   return (
     <div>
       <section className="text-gray-600 body-font">
@@ -43,21 +55,13 @@ const ProductCard = () => {
             <div className="h-1 w-24 bg-pink-600 rounded mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {product
-              .filter((obj) =>
-                obj.title.toLowerCase().includes(searchkey.toLowerCase())
-              )
-              .filter((obj) =>
-                obj.category.toLowerCase().includes(filterType.toLowerCase())
-              )
-              .filter((obj) =>
-                obj.price
-                  .toString()
-                  .toLowerCase()
-                  .includes(filterPrice.toLowerCase())
-              )
-              .map((item, index) => (
+          {filteredProducts.length === 0 ? (
+            <div className="text-center text-lg font-medium text-gray-500" style={{ color: mode === "dark" ? "white" : "" }}>
+              No products found.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {filteredProducts.map((item, index) => (
                 <div key={index}>
                   <div
                     onClick={() =>
@@ -65,8 +69,7 @@ const ProductCard = () => {
                     }
                     className="h-full flex flex-col justify-between border rounded-2xl overflow-hidden shadow hover:shadow-xl transition duration-300 ease-in-out"
                     style={{
-                      backgroundColor:
-                        mode === "dark" ? "rgb(46 49 55)" : "",
+                      backgroundColor: mode === "dark" ? "rgb(46 49 55)" : "",
                       color: mode === "dark" ? "white" : "",
                       borderColor: "rgba(229, 231, 235, 0.5)",
                       minHeight: "430px",
@@ -107,7 +110,8 @@ const ProductCard = () => {
                   </div>
                 </div>
               ))}
-          </div>
+            </div>
+          )}
         </div>
       </section>
     </div>
