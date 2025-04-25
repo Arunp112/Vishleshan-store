@@ -98,7 +98,7 @@ const ProductCard = () => {
                       <div className="mt-4">
                         <button
                           onClick={(e) => {
-                            e.stopPropagation(); // prevent redirect
+                            e.stopPropagation();
                             addCart(item);
                           }}
                           className="w-full bg-pink-600 hover:bg-pink-700 text-white font-medium py-2 rounded-lg transition-colors"
