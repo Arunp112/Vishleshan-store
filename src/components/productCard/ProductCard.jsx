@@ -6,7 +6,8 @@ import { toast } from "react-toastify";
 
 const ProductCard = () => {
   const context = useContext(myContext);
-  const { mode, product } = context;
+  const { mode, product,searchkey, setSearchkey,filterType, setFilterType,
+    filterPrice, setFilterPrice } = context;
   const dispatch = useDispatch();
   const cartItems=useSelector((state)=>state.cart)
 
@@ -34,8 +35,8 @@ const ProductCard = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {product.map((item, index) => (
-              <div key={index}>
+            {product.filter((obj)=>obj.title.toLowerCase().includes(searchkey)).filter((obj)=>obj.category.toLowerCase().includes(filterType)).filter((obj)=>obj.price.toLowerCase().includes(filterPrice)).map((item, index) => (
+              <div key={index} onClick={()=> window.location.href = `/productinfo/${item.id}`} >
               <div
                 className="h-full flex flex-col justify-between border rounded-2xl overflow-hidden shadow hover:shadow-xl transition duration-300 ease-in-out"
                 style={{
